@@ -1,0 +1,36 @@
+.footerStyle{
+    background: #212529;
+    color: white;
+    text-align: center;
+    font-size: .7em,
+}
+
+.footerPositioning{
+    position: fixed;
+    bottom: 0;
+    padding: 5;
+    width: 100%;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+.footer-fade-out {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 37, 41, 0.8); /* set the background color and transparency */
+    color: white;
+    font-size: 0.7em;
+    padding: 5px;
+    transition: opacity 0.5s ease-out; /* add a transition effect */
+    opacity: 1; /* set the initial opacity to fully opaque */
+  }
+  
+  .footer-fade-out.hidden {
+    opacity: 0; /* set the opacity to fully transparent to fade out */
+  }
+
+ 

@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  padding-top: 3.5em;
+  /* padding-top: 3.5em; */
+  margin-bottom: 2em;
+  /* overflow-anchor: none; */
+}
+
+/* #root{
+  margin-top: 84px;
+  overflow-anchor: none;
+} */
+
+
+/* in order to avoid the "frameborder" warning, a 0px border can be set on the iframe tag */
+iframe {
+  border : 0;
+}
+
+.CookieConsent div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .CookieConsent div:nth-of-type(2) div{
+  padding-top: 0.5em;
+} */
+
+/* improvised style for the GDRP modal */
+div.modal-content {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+}
