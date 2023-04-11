@@ -5,7 +5,7 @@ class AuthService {
     constructor() {
         this.app = axios.create({
             baseURL: process.env.REACT_APP_BASE_URL,
-            // baseURL: 'http://matecumatei.herokuapp.com/api/',
+            // baseURL: 'https://matecumatei-server.herokuapp.com/api/',
             // baseURL: 'http://localhost:5000/api/',
             withCredentials: true
         })

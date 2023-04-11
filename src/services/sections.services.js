@@ -5,7 +5,7 @@ import axios from 'axios'
     constructor(){
         this.app = axios.create({
             baseURL: process.env.REACT_APP_BASE_URL + '/sections',
-            // baseURL: 'http://matecumatei.herokuapp.com/api/sections'
+            // baseURL: 'https://matecumatei-server.herokuapp.com/api/sections',
             // baseURL: 'http://localhost:5000/api/sections',
             withCredentials: true
         })
