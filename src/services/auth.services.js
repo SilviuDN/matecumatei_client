@@ -11,10 +11,10 @@ class AuthService {
         })
     }
 
-    login = (email, pwd) => this.app.post('/login', { email, pwd })
-    signup = (email, pwd, name, surname, username) => this.app.post('/signup', { email, pwd, name, surname, username })
+    login = (email, pwd) => this.app.post('/login', { email, pwd }, {xsrfCookieName: 'MateCuMateiCookie'} )
+    signup = (email, pwd, name, surname, username) => this.app.post('/signup', { email, pwd, name, surname, username }, {xsrfCookieName: 'MateCuMateiCookie'} )
     logout = () => this.app.get('/logout')
-    isLoggedIn = () => this.app.post('/isLoggedIn')
+    isLoggedIn = () => this.app.post('/isLoggedIn', null, {xsrfCookieName: 'MateCuMateiCookie'} )
 }
 
 export default AuthService

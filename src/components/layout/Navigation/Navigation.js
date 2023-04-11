@@ -58,7 +58,7 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                             <span className="nav-link" onClick = { () => logout()}>LogOut</span>
                             <Link className="nav-link" to={`/users/${loggedUser._id}`}>My profile   
                             </Link>
-                            <span className="nav-link" >Salutare{loggedUser ? ', '+loggedUser.username.trim().split(' ')[0] : ''}!</span>
+                            <span className="nav-link" >Salutare{loggedUser ? ', '+loggedUser.username?.trim().split(' ')[0] : ''}!</span>
                         </>
                     }
                 </Nav>
