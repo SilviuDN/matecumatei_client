@@ -16,8 +16,8 @@ const CookieGDRP = ({ show, onHide }) => {
             <div>
                 <h6>Nouă ne pasă ca datele tale personale să rămână confidențiale</h6>
                 <p>
-                    Pe acest site folosim un singur cookie funcțional necesar autentificării. 
-                    Autentificarea se realizează prin intermediul formularului de login și implică consimțământul pentru utilizarea acestui cookie necesar.
+                    Pe acest site folosim cookie-uri funcționale necesare autentificării sau vizualizării lecțiilor. 
+                    Autentificarea prin intermediul formularului de login sau vizualizarea lecțiilor implică consimțământul pentru utilizarea acestor cookie-uri necesare.
                 </p>
             </div>
             </div>
