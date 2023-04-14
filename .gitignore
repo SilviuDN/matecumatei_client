@@ -8,9 +8,6 @@ src/components/pages/CourseForm/classComponents
 /.pnp
 .pnp.js
 
-# Environment Variables should NEVER be published
-.env
-
 # testing
 /coverage
 
