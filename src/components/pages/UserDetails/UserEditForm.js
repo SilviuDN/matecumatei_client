@@ -57,7 +57,7 @@ class UserEditForm extends Component{
         }
 
         return(
-            <Container>
+            <Container style={{marginBottom: '15em'}}>
 
                 <Row>
 
