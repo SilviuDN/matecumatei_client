@@ -4,10 +4,9 @@ import { Col, Button} from "react-bootstrap";
 import {Link} from 'react-router-dom'
 
 
-const CourseCard = ({name, description, image, _id, reviews, loggedUser}) => {
-    // console.log('**************',description)
-    const shortDescription = description[0].slice(0, 70)
-    console.log('*******************', shortDescription)
+const CourseCard = ({name, about, description, image, _id, reviews, loggedUser}) => {
+    // const shortDescription = description[0].slice(0, 70)
+    const shortDescription =about.slice(0, 70)
 
     return(
         <Col sm={6} lg={4}>
