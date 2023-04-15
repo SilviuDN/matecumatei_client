@@ -18,9 +18,9 @@ function Overview({course}) {
         </ul>
         <hr/>
         <h4>Description:</h4>
-        <p>{course.description}</p>
+        {/* <p>{course.description}</p> */}
         {
-            // course.description.map( (paragraph, keyNum) => <p key={keyNum}>{paragraph}</p>)
+            course.description.map( (paragraph, keyNum) => <p key={keyNum}>{paragraph}</p>)
         }
         {/* <ul>
             <li>Highlights</li>

@@ -141,10 +141,10 @@ const CourseForm = (props) =>  {
                         <Form.Control type="text" value={courseInput.about} onChange={handleInputChange} name="about" />
                     </Form.Group>
 
-                    <Form.Group controlId="desc">
+                    {/* <Form.Group controlId="desc">
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="text" value={courseInput.description} onChange={handleInputChange} name="description" />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group controlId="NewCourseFormType">
                         <Form.Label>Type</Form.Label>

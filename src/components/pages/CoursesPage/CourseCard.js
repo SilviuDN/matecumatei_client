@@ -5,13 +5,14 @@ import {Link} from 'react-router-dom'
 
 
 const CourseCard = ({name, description, image, _id, reviews, loggedUser}) => {
+    // console.log('**************',description)
 
     return(
         <Col sm={6} lg={4}>
             <article className="courseCard">
                 <img src={image} alt={name}/>
                 <h4>{name}</h4>
-                <p>{description.slice(0, 70)}...</p>
+                <p>{description[0].slice(0, 70)}...</p>
                 <Link to={`/courses/details/${_id}`}>
                     <Button className="btnBlock" variant="secondary">Detalii</Button>
                 </Link>
