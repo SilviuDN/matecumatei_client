@@ -104,8 +104,10 @@ class CourseDetails extends Component{
                     null
                     } */}
 
-                    <CourseTabs course={this.state.course} loggedUser={this.props.loggedUser} renderList={this.renderList}
-                        setCurrentVideo={this.setCurrentVideo}/>
+                    <div className="d-none d-sm-block">
+                        <CourseTabs course={this.state.course} loggedUser={this.props.loggedUser} renderList={this.renderList}
+                            setCurrentVideo={this.setCurrentVideo}/>
+                    </div>
 
                 </Col>
 
