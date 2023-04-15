@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 // import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import Routes from './Routes';

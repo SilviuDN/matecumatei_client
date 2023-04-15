@@ -11,6 +11,7 @@ class Signup extends Component {
         this.state = {
             email: '',
             pwd: '',
+            pwd2: '',
             name: '',
             surname: '',
             username: '',
@@ -29,10 +30,10 @@ class Signup extends Component {
 
         e.preventDefault()
 
-        const { email, pwd, name, surname, username } = this.state
+        const { email, pwd, pwd2, name, surname, username } = this.state
 
         this.authService
-            .signup(email, pwd, name, surname, username)
+            .signup(email, pwd, pwd2, name, surname, username)
             .then(() => this.props.history.push('/logIn'))          // Redirect with props
             .catch(err => this.props.handleAlert(err.response.data.err, 10000, 'warning', true))
             // .catch(err => console.log(JSON.stringify(err)))
@@ -64,6 +65,11 @@ class Signup extends Component {
                             <Form.Group controlId="pwd">
                                 <Form.Label>Password*</Form.Label>
                                 <Form.Control type="password" value={this.state.pwd} onChange={this.handleInputChange} name="pwd" />
+                            </Form.Group>
+
+                            <Form.Group controlId="pwd2">
+                                <Form.Label>Repeat Password*</Form.Label>
+                                <Form.Control type="password" value={this.state.pwd2 || ''} onChange={this.handleInputChange} name="pwd2" />
                             </Form.Group>
 
                             <Form.Group controlId="username">

@@ -9,12 +9,12 @@ const CourseCard = ({name, about, description, image, _id, reviews, loggedUser})
     const shortDescription = about.slice(0, 70)
 
     return(
-        <Col sm={6} lg={4}>
+        <Col md={6} xl={4}>
             <article className="courseCard">
-                <img src={image} alt={name}/>
-                <h4>{name}</h4>
-                <p>{shortDescription}...</p>
-                <Link to={`/courses/details/${_id}`}>
+                <Link to={`/courses/details/${_id}`} className='courseCardLink'>
+                    <img src={image} alt={name}/>
+                    <h4>{name}</h4>
+                    <p>{shortDescription}...</p>
                     <Button className="btnBlock" variant="secondary">Detalii</Button>
                 </Link>
                 {

@@ -1,5 +1,22 @@
 .courseCard {
+  border: 1px solid #ccc;
+  margin: 0.5em;
   margin-bottom: 1.5em;
+  padding: 1.5em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.courseCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.courseCard:hover .courseCardLink:hover {
+  color: red;
+  /* transition: color 0.5s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
 }
 
 .courseCard h4 {
@@ -14,6 +31,13 @@
   height: 16rem;
   width: 100%;
   object-fit: cover;
+}
+
+.courseCardLink {  
+  color: inherit; /* Inherits the text color from the parent element */
+  text-decoration: none; /* Removes the underline */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: all 0.5s ease-in-out;
 }
 
 .btnBlock {
