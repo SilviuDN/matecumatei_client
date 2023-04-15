@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 // import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import Routes from './Routes';
@@ -73,11 +74,14 @@ class App extends Component {
           redirectToCourses={this.redirectToCourses}
         />
 
-        <Routes
-          handleAlert={this.handleAlert}
-          storeUser={this.storeUser}
-          loggedUser={this.state.loggedUser}
-        />
+        <div style={{paddingTop:'3.5em', paddingBottom:'7em', marginBottom:'0'}}>
+
+          <Routes
+            handleAlert={this.handleAlert}
+            storeUser={this.storeUser}
+            loggedUser={this.state.loggedUser}
+          />          
+        </div>
 
         <Footer />
 

@@ -80,6 +80,11 @@ class Signup extends Component {
                                 <Form.Label>Nume de familie</Form.Label>
                                 <Form.Control type="text" value={this.state.surname} onChange={this.handleInputChange} name="surname" />
                             </Form.Group>
+                            
+                            <Form.Label style={{paddingTop:"1em"}}>Câmpurile marcate cu * sunt necesare pentru crearea contului.</Form.Label>
+                            <Form.Label><strong style={{color:"red"}}>Important:</strong> <em>acest site de probă este temporar și toate conturile vor fi șterse odată cu blocarea site-ului, 
+                                împreună cu toate datele personale furnizate pentru crearea contului.</em>
+                            </Form.Label>
 
                             <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Sign Up</Button>
 

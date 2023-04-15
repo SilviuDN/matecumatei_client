@@ -14,7 +14,7 @@ function Overview({course}) {
             <li>Students: {course.students.length}</li>
             <li>Language: {course.language}</li>
             <li>Lectures: {course.lecturesNumber}</li>
-            <li>Total video duration: {course.totalTimeInSeconds}</li>
+            <li>Total video duration: {course.totalTimeInSeconds} ore</li>
         </ul>
         <hr/>
         <h4>Description:</h4>
