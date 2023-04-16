@@ -99,6 +99,38 @@ class LectureCard extends Component{
         const setCurrentVideoSectionAndLecture = () => {
             setCurrentVideo(lecture.videoUrl)
             setCurrentLecture(lecture.sectionNumber, lecture.lectureNumber)
+
+            // COUNT THE VIEWS
+            const {loggedUser} = this.props
+            if(!loggedUser){
+                this.setState( prevState => {
+                    const newAnonymousViews = prevState.lecture.anonymousViews ? prevState.lecture.anonymousViews + 1 : 1
+                    return{
+                        lecture: {...prevState.lecture, anonymousViews: newAnonymousViews}
+                    }
+                }, () => {
+                        this.lecturesService
+                            .updateLectureViews(this.state.lecture)
+                            .then((newLecture) => {return})
+                            .catch(err => console.log(err))
+                    }
+                )
+            }
+
+            if(loggedUser && loggedUser.role !== 'admin' && loggedUser.email !== 'b@agmail.com'){
+                this.setState( prevState => {
+                    const newViews = prevState.lecture.views ? prevState.lecture.views + 1 : 1
+                    return{
+                        lecture: {...prevState.lecture, views: newViews}
+                    }
+                }, () => {
+                        this.lecturesService
+                            .updateLectureViews(this.state.lecture)
+                            .then((newLecture) => {return})
+                            .catch(err => console.log(err))
+                    }
+                )
+            }
         }
         const activeColor = currentVideo === lecture.videoUrl ? '#ebe8e8' : '#fff'
         return(

@@ -2,7 +2,8 @@
     background: #212529;
     color: white;
     text-align: center;
-    font-size: .7em,
+    font-size: .7em;
+    transition: all 0.7s ease-in-out;
 }
 
 .footerPositioning{

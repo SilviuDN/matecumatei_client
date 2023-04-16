@@ -16,6 +16,8 @@ import axios from 'axios'
     saveLecture = (lecture_info) => this.app.post('/new', lecture_info)
     editLecture = (lecture_info) => this.app.put(`/edit/${lecture_info._id}`, lecture_info)
     deleteLecture = (lecture_id) => this.app.post(`/delete/${lecture_id}`, lecture_id)
+    
+    updateLectureViews = (lecture_info) => this.app.put(`/updateLectureViews/${lecture_info._id}`, lecture_info)
  }
 
  export default LecturesService

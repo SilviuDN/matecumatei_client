@@ -28,7 +28,6 @@ class UserEditForm extends Component{
         this.userService
             .editUser(this.state.user, this.state.showNewPasswordFields)
             .then( () => {
-                console.log('ok')
                 this.props.history.push(`/users/${this.state.user._id}`);
             })
             .catch( err => this.props.handleAlert(err.response.data.err, 10000, 'warning', true))

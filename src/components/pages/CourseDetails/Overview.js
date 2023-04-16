@@ -11,7 +11,7 @@ function Overview({course}) {
         <h4>Numbers:</h4>
         <ul>
             <li>Skill level: {course.skillLevel}</li>
-            <li>Students: {course.students.length}</li>
+            {/* <li>Students: {course.students.length}</li> */}
             <li>Language: {course.language}</li>
             <li>Lectures: {course.lecturesNumber}</li>
             <li>Total video duration: {course.totalTimeInSeconds} ore</li>
