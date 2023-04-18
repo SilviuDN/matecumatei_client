@@ -61,9 +61,9 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                         <NavDropdown title="Contul meu" id="basic-nav-dropdown" align="end" className="d-none d-md-block">
                             <NavDropdown.Item onClick={handleLogIn}>Accesează cont</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={handleSignUp}>Crează cont</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleSignUp}>Creează cont</NavDropdown.Item>
                         </NavDropdown>
-                        <Link className="nav-link d-md-none" to="/signup">Crează cont</Link>
+                        <Link className="nav-link d-md-none" to="/signup">Creează cont</Link>
                         <Link className="nav-link d-md-none" to="/login">Accesează cont</Link>
                         </>
                         :
