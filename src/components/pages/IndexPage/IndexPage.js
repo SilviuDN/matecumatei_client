@@ -9,7 +9,7 @@ const IndexPage = () => {
         <Container className='bgImg' style={{marginLeft: '0px', marginRight: '0px', width:'100vw'}}>
 
             {/* <h1>Welcome to MateCuMatei</h1> */}
-            {/* <p>MateCuMatei - Idei, nu formule.</p> */}
+            <p>Idei, nu formule.</p>
             <Link to={`/courses`}>
                     {/* <Button className="btnBlock">All Courses</Button> */}
             </Link>

@@ -23,7 +23,9 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
         const navbarCollapse = document.querySelector('.navbar-collapse');
 
         if (navbarToggler && navbarCollapse) {
-            // navbarToggler.classList.add('collapsed');
+            // navbarToggler.classList.toggle('collapsed');
+            // navbarCollapse.classList.toggle('show');
+            navbarToggler.classList.add('collapsed');
             navbarCollapse.classList.remove('show');
         }
     };
@@ -51,9 +53,9 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
         // as putea adauga zIndex:10 --> ca sa nu mai apara video peste Navbar
         <Navbar bg="dark" variant="dark" expand="md" style={{ marginBottom: '0px', position: 'fixed', top: 0, width:'100%', zIndex:10 }}>
             <Link className="nav-link" to="/">
-                <Navbar.Brand style={{color: 'rgba(255, 255, 255, 0.55)'}}>MateCuMatei - Idei, nu formule.</Navbar.Brand >
+                <Navbar.Brand style={{color: 'rgba(255, 255, 255, 0.55)'}} onClick={handleMenuClick}>MateCuMatei</Navbar.Brand >
             </Link>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="mr-auto">
                     {/* <Link className="nav-link" to="/">Home</Link> */}
