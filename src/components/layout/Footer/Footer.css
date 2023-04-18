@@ -13,10 +13,6 @@
     width: 100%;
 }
 
-/* .hidden {
-    display: none;
-} */
-
 .footer-fade-out {
     position: fixed;
     bottom: 0;
@@ -31,7 +27,8 @@
   }
   
   .footer-fade-out.hidden {
-    opacity: 0; /* set the opacity to fully transparent to fade out */
+    /* opacity: 0; set the opacity to fully transparent to fade out */
+    display: none;
   }
 
  
