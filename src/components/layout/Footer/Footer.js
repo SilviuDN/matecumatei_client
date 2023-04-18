@@ -97,7 +97,8 @@ class Footer extends Component {
       <footer className={`footerStyle footerPositioning ${hidden ? 'footer-fade-out hidden' : ''}`}>
         <Row>
           <Col xs={12} md={3}>
-            Perseverance leads to inspiration.
+            Perseverența duce la inspirație.
+            {/* Perseverance leads to inspiration. */}
           </Col>
           <Col xs={12} md={6} className="offset-md-3">
             <Row>

@@ -48,7 +48,7 @@ class UserDetails extends Component{
                                 <p><strong>Prenume:</strong> {user.name}</p>
                                 <p><strong>Nume de familie:</strong> {user.username}</p>
                             <Link className="nav-link" to={`/users/${user._id}/edit`}>
-                                <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Edit User</Button>
+                                <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Editează datele{/*Edit User*/}</Button>
                             </Link>
                         </Card.Body>
                     </Card>

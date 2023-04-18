@@ -11,7 +11,7 @@ import axios from 'axios'
         })
     }
 
-    getAllUsers = () => this.app.get('/')
+    // getAllUsers = () => this.app.get('/')
     getUser = userId => this.app.get(`/${userId}`)
     // saveUser = (user_info) => this.app.post('/new', user_info)
     editUser = (user, changePassword) => this.app.put(`/edit/${user._id}`, {user, changePassword})

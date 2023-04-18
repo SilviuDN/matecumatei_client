@@ -62,7 +62,7 @@ class UserEditForm extends Component{
 
                     <Col md={{ span: 4, offset: 4 }}>
 
-                        <h1>Update my profile</h1>
+                        <h1>Actualizează profilul{/*Update my profile*/}</h1>
 
                         <hr></hr>
 
@@ -95,7 +95,7 @@ class UserEditForm extends Component{
         checked={this.state.showNewPasswordFields}
         onChange={this.handleCheckboxChange}
         name="showNewPasswordFields"
-        label="Change Password"
+        label="Schimbă parola"/*"Change Password"*/
         inline
     />
 </Form.Group>
@@ -105,24 +105,24 @@ class UserEditForm extends Component{
                             &&
                             <>
                             <hr/>
-                                <Form.Label>In order to change the password, 
+                                <Form.Label>Pentru a schimba parola{/*In order to change the password*/}, 
                                     <ul>
-                                        <li>provide the current password</li>
-                                        <li>introduce twice the new password</li>
+                                        <li>introdu parola actuală{/*provide the current password*/}</li>
+                                        <li>introdu de două ori noua parolă{/*introduce twice the new password*/}</li>
                                     </ul>
                                 </Form.Label>
                                 <Form.Group controlId="pwd">
-                                    <Form.Label>Current Password</Form.Label>
+                                    <Form.Label>Parola actuală{/*Current Password*/}</Form.Label>
                                     <Form.Control type="password" value={this.state.user.pwd || ''} onChange={this.handleInputChange} name="pwd" />
                                 </Form.Group>
 
                                 <Form.Group controlId="pwdNew1">
-                                    <Form.Label>New Password</Form.Label>
+                                    <Form.Label>Noua parolă{/*New Password*/}</Form.Label>
                                     <Form.Control type="password" value={this.state.user.pwdNew1 || ''} onChange={this.handleInputChange} name="pwdNew1" />
                                 </Form.Group>
 
                                 <Form.Group controlId="pwdNew2">
-                                    <Form.Label>New Password</Form.Label>
+                                    <Form.Label>Reintrodu noua parolă pentru verificare{/*New Password*/}</Form.Label>
                                     <Form.Control type="password" value={this.state.user.pwdNew2 || ''} onChange={this.handleInputChange} name="pwdNew2" />
                                 </Form.Group>
                             </>
@@ -130,7 +130,7 @@ class UserEditForm extends Component{
 
 
 
-                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Update My Info</Button>
+                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Actualizează datele{/*Update My Info*/}</Button>
 
                         </Form>
 

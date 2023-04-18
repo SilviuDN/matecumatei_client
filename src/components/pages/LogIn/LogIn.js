@@ -60,7 +60,7 @@ class LogIn extends Component {
                             </Form.Group>
 
                             <Form.Group controlId="pwd">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label>Parolă{/*Password*/}</Form.Label>
                                 <Form.Control type="password" value={this.state.pwd} onChange={this.handleInputChange} name="pwd" />
                             </Form.Group>
 
