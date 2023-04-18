@@ -18,6 +18,16 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
         history.push('/login');
     };
 
+    const handleMenuClick = () => {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarToggler && navbarCollapse) {
+            // navbarToggler.classList.add('collapsed');
+            navbarCollapse.classList.remove('show');
+        }
+    };
+
     const logout = () => {
         authService
             .logout()
@@ -32,6 +42,7 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                 // storeUser(undefined)
                 // history.push('/courses')
             })
+            handleMenuClick()
     }
 
 
@@ -46,11 +57,11 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="mr-auto">
                     {/* <Link className="nav-link" to="/">Home</Link> */}
-                    <Link className="nav-link" to="/courses">Cursuri{/*Courses*/}</Link>
+                    <Link className="nav-link" to="/courses" onClick={handleMenuClick}>Cursuri{/*Courses*/}</Link>
 
                     {loggedUser && ( loggedUser.role === 'admin' || loggedUser.role === 'superUser' )
                     ?
-                    <Link className="nav-link" to="/courses/new">Curs Nou{/*NewCourse*/}</Link>
+                    <Link className="nav-link" to="/courses/new" onClick={handleMenuClick}>Curs Nou{/*NewCourse*/}</Link>
                     :
                     null                    
                     }
@@ -63,13 +74,13 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={handleSignUp}>Creează cont</NavDropdown.Item>
                         </NavDropdown>
-                        <Link className="nav-link d-md-none" to="/signup">Creează cont</Link>
-                        <Link className="nav-link d-md-none" to="/login">Accesează cont</Link>
+                        <Link className="nav-link d-md-none" to="/signup" onClick={handleMenuClick}>Creează cont</Link>
+                        <Link className="nav-link d-md-none" to="/login" onClick={handleMenuClick}>Accesează cont</Link>
                         </>
                         :
                         <>
                             <span className="nav-link" onClick = { () => logout()}>LogOut</span>
-                            <Link className="nav-link" to={`/users/${loggedUser._id}`}>Profilul Meu</Link>
+                            <Link className="nav-link" to={`/users/${loggedUser._id}`}  onClick={handleMenuClick}>Profilul Meu</Link>
                             <span className="nav-link" >Salutare{loggedUser ? ', '+loggedUser.username?.trim().split(' ')[0] : ''}!</span>
                         </>
                     }
