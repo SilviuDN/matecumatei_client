@@ -16,7 +16,7 @@ const Alert = ({ handleAlert, show, text, displayTime, color }) => {
                     alt="Logotipo"
                     style={{ width: '2.5em', height: '2.5em' }}
                 />
-                <strong className="me-auto"> Mensaje del sistema</strong>
+                <strong className="me-auto"> Mesaj tehnic</strong>
             </Toast.Header>
             <Toast.Body>{errorMessages}</Toast.Body>
         </Toast>

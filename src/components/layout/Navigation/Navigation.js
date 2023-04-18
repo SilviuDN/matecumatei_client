@@ -70,12 +70,12 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                         ?
                         <>
                         <NavDropdown title="Contul meu" id="basic-nav-dropdown" align="end" className="d-none d-md-block">
-                            <NavDropdown.Item onClick={handleLogIn}>Accesează cont</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleLogIn}>Log In</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={handleSignUp}>Creează cont</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleSignUp}>Cont nou</NavDropdown.Item>
                         </NavDropdown>
-                        <Link className="nav-link d-md-none" to="/signup" onClick={handleMenuClick}>Creează cont</Link>
-                        <Link className="nav-link d-md-none" to="/login" onClick={handleMenuClick}>Accesează cont</Link>
+                        <Link className="nav-link d-md-none" to="/login" onClick={handleMenuClick}>Log In{/*Accesează cont*/}</Link>
+                        <Link className="nav-link d-md-none" to="/signup" onClick={handleMenuClick}>Cont nou{/*Creează cont*/}</Link>
                         </>
                         :
                         <>
