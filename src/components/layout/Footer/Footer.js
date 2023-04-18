@@ -6,31 +6,9 @@ import FooterSection from './FooterSection';
 class Footer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hidden: false,
-    };
   }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const visibleThreshold = 50; // tweak this value as needed
-    if (currentScrollPos > visibleThreshold) {
-      this.setState({ hidden: true });
-    } else {
-      this.setState({ hidden: false });
-    }
-  };
 
   render() {
-    const { hidden } = this.state;
     const footerSections = [
       {
         title: 'Creatori',
@@ -94,7 +72,7 @@ class Footer extends Component {
     ];
 
     return (
-      <footer className={`footerStyle footerPositioning ${hidden ? 'footer-fade-out hidden' : ''}`}>
+      <footer className={`footerStyle`}>
         <Row>
           <Col xs={12} md={3}>
             Perseverența duce la inspirație.
@@ -103,7 +81,7 @@ class Footer extends Component {
           <Col xs={12} md={6} className="offset-md-3">
             <Row>
               {footerSections.map((section, index) => (
-                <Col xs={12} md={4} key={index}>
+                <Col xs={4} md={4} key={index}>
                   <FooterSection footerColumnInfo={section} />
                 </Col>
               ))}
