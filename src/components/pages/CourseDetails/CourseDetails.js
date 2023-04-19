@@ -4,6 +4,7 @@ import SectionsList from "../SectionPage/SectionsList";
 import Spinner from './../../shared/Spinner'
 import SectionForm from "../SectionForm/SectionForm";
 import classes from '../SectionPage/SectionPage.module.css';
+import classes2 from './CourseDetails.module.css';
 
 import { Row, Col} from 'react-bootstrap'
 // import {Link} from 'react-router-dom'
@@ -81,7 +82,7 @@ class CourseDetails extends Component{
             <>
             <CourseHeader course = {this.state.course}/>
             <Row className="justify-content-around">
-                <Col md={7} style={{marginBottom: '1em'}}>
+                <Col md={7} style={{marginBottom: '1em'}} className={classes2.stickyVideo}>
                     <LectureVideo videoUrl={this.state.currentVideo} style={{width:"100%", margin:0, padding:0}}/>
                     <hr/>
 
@@ -169,14 +170,14 @@ class CourseDetails extends Component{
 
                     {/* {!this.state.course.sections || (this.state.course?.sections.length === 1 && this.state.course.sections[0]==='') */}
                     
-                    
+{/* // RAMAS DIN DTRABUNI                    
                     {(!this.state.course.sections || this.state.course?.sections.length === 0)
                     ?
                     this.state.showSections && <p>Todavia no hay sections...</p>
                     :
                     this.state.showSections && <SectionsList courseId={this.state.course._id} sections={this.state.course?.sections}  
                         loggedUser={this.props.loggedUser} renderList={this.renderList}/>
-                    }
+                    } */}
 
 
             
