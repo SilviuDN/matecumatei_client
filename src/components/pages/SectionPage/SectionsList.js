@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import SectionCard from "./SectionCard";
 import { Component } from "react";
+import classes from './SectionPage.module.css';
 
 class SectionsList extends Component{
 
@@ -62,7 +63,7 @@ class SectionsList extends Component{
         // const sectionsListOverflowStyle = loggedUser? {height:'80vh', overflowY:'scroll'} : {}
         return(
             // <div style={sectionsListOverflowStyle}>
-            <div style={{height:'80vh', overflowY:'scroll'}}>
+            <div style={{height:'80vh', overflowY:'scroll'}} className={classes.sectionListDesktopPadding}>
             {sections.map(sectionId => <SectionCard key={sectionId} 
                 courseId={courseId} freeCourse={freeCourse} lecturesCount={lecturesCount}
                 sectionId = {sectionId}  loggedUser={loggedUser} 

@@ -105,7 +105,7 @@ class CourseDetails extends Component{
                     null
                     } */}
 
-                    <div className="d-none d-sm-block">
+                    <div className="d-none d-sm-block" style={{marginBottom:'7em'}}>
                         <CourseTabs course={this.state.course} loggedUser={this.props.loggedUser} renderList={this.renderList}
                             setCurrentVideo={this.setCurrentVideo}/>
                     </div>

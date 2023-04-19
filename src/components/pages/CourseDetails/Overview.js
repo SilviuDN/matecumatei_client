@@ -6,18 +6,18 @@ function Overview({course}) {
   return (
     <>
         <h2>Prezentare generala:</h2>
-        <h4>About this course:</h4>
+        <h4>Despre curs:{/*About this course:*/}</h4>
         <hr/>
-        <h4>Numbers:</h4>
+        <h4>Date numerice{/*Numbers*/}:</h4>
         <ul>
-            <li>Skill level: {course.skillLevel}</li>
+            <li>Dificultate{/*Skill level*/}: {course.skillLevel}</li>
             {/* <li>Students: {course.students.length}</li> */}
-            <li>Language: {course.language}</li>
-            <li>Lectures: {course.lecturesNumber}</li>
-            <li>Total video duration: {course.totalTimeInSeconds} ore</li>
+            <li>Limbă{/*Language*/}: {course.language}</li>
+            <li>Lecții{/*Lectures*/}: {course.lecturesNumber}</li>
+            <li>Durată totală{/*Total video duration*/}: {course.totalTimeInSeconds} ore</li>
         </ul>
         <hr/>
-        <h4>Description:</h4>
+        <h4>Descriere{/*Description*/}:</h4>
         {/* <p>{course.description}</p> */}
         {
             course.description.map( (paragraph, keyNum) => <p key={keyNum}>{paragraph}</p>)

@@ -37,3 +37,14 @@
   padding: 0;
   margin: 0;
 }
+
+
+.sectionListDesktopPadding{
+  padding-bottom:17em;
+}
+
+@media (max-width: 768px) {
+  .sectionListDesktopPadding {
+    padding-bottom:0;
+  }
+}

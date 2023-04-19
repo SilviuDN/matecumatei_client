@@ -4,10 +4,11 @@
   left: 0;
   right: 0;
     background: #212529;
-    color: white;
+    color: rgba(255, 255, 255, 1);
     text-align: center;
     font-size: 1em;
     transition: all 0.7s ease-in-out;
+    opacity: 1;
 }
 
 
