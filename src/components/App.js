@@ -74,7 +74,7 @@ class App extends Component {
           redirectToCourses={this.redirectToCourses}
         />
 
-        <div style={{paddingTop:'3.5em', paddingBottom:'7em', marginBottom:'0'}}>
+        <div style={{paddingTop:'3.5em', paddingBottom:'', marginBottom:'0'}}>
 
           <Routes
             handleAlert={this.handleAlert}
@@ -101,7 +101,7 @@ class App extends Component {
         
         <CookieSettingsModal show={this.state.showCookiesSettings} onHide={this.hideCookiesSettings} /> */}
          
-        <CookieGDRP show={this.state.showGDRP} onHide={this.hideGDRP} />
+        {/* <CookieGDRP show={this.state.showGDRP} onHide={this.hideGDRP} /> */}
 
        
       </>
