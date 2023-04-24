@@ -42,12 +42,12 @@ class App extends Component {
   };
 
   // Handle Cookies
-  showCookiesSettings = () => {
-    this.setState({ showCookiesSettings: true });
-  }  
-  hideCookiesSettings = () => {
-    this.setState({ showCookiesSettings: false });
-  }
+  // showCookiesSettings = () => {
+  //   this.setState({ showCookiesSettings: true });
+  // }  
+  // hideCookiesSettings = () => {
+  //   this.setState({ showCookiesSettings: false });
+  // }
   hideGDRP = () => {
     this.setState({ showGDRP: false });
   }
@@ -74,7 +74,7 @@ class App extends Component {
           redirectToCourses={this.redirectToCourses}
         />
 
-        <div style={{paddingTop:'3.5em', paddingBottom:'', marginBottom:'0'}}>
+        <div style={{paddingTop:'3.5em', paddingBottom:'0', marginBottom:'0', minHeight:'100vh'}} >
 
           <Routes
             handleAlert={this.handleAlert}
