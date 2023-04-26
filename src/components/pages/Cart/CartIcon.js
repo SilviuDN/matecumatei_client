@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 // import React, { useContext } from 'react';
 // import { withRouter } from 'react-router-dom';
 import ShoppingCart from './shopping-cart-svgrepo-com.svg';

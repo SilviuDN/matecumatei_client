@@ -15,7 +15,7 @@ const Routes = ({ storeUser, loggedUser, handleAlert }) => {
     return(
         <>
             <Switch>
-                <Route path = '/' exact render = { () => <IndexPage/> } />
+                <Route path = '/' exact render = { () => <IndexPage loggedUser={loggedUser}/> } />
 
                 <Route path = '/courses' exact render = { () => <CoursesPage loggedUser={loggedUser}/> } />
                 <Route path = '/courses/details/:course_id' render = { props => <CourseDetails {...props} loggedUser={loggedUser}/> } />
