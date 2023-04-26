@@ -1,6 +1,7 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { useHistory, Link } from 'react-router-dom'
 import './Navigation.css'
+import CartIcon from '../../pages/Cart/CartIcon'
 
 import AuthService from '../../../services/auth.services'
 
@@ -86,6 +87,7 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                             <span className="nav-link" >Salutare{loggedUser ? ', '+loggedUser.username?.trim().split(' ')[0] : ''}!</span>
                         </>
                     }
+                    {/* <Link className="nav-link" to="/"><CartIcon/></Link> */}
                 </Nav>
             </Navbar.Collapse>
         </Navbar >
