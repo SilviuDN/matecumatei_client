@@ -20,9 +20,9 @@ class CourseDetails extends Component{
         super()
         this.state = {
             course: undefined,
-            showSections: false,
-            currentSection: 3,
-            currentLecture: 1,
+            // showSections: false,
+            // currentSection: 3, // removable?
+            // currentLecture: 1, // removable?
             currentVideo: undefined,
             newSectionFormIsShown: false,
         }
@@ -37,9 +37,10 @@ class CourseDetails extends Component{
             .catch( err => console.log(err))
     }
 
-    setCurrentSectionAndLecture(sectionNumber, lectureNumber){
-        this?.setState({currentSection: sectionNumber, currentLecture: lectureNumber})
-    }
+    // setCurrentSectionAndLecture is not used for now... 
+    // setCurrentSectionAndLecture(sectionNumber, lectureNumber){
+    //     this?.setState({currentSection: sectionNumber, currentLecture: lectureNumber})
+    // }
 
     setCurrentVideo = (videoUrl) => {
         this.setState({currentVideo: videoUrl})
@@ -52,9 +53,9 @@ class CourseDetails extends Component{
 
     // componentDidUpdate = (prevProps, prevState) => prevState.currentVideo !== this.state.currentVideo && window.scrollTo(0, 0)
 
-    toggleShowSections = () => {
-        this.setState({showSections: !this.state.showSections})
-    }
+    // toggleShowSections = () => {
+    //     this.setState({showSections: !this.state.showSections})
+    // }
 
     // componentDidUpdate(prevProps, prevState){
     //     if( prevState.currentVideo !== this.state.currentVideo){
@@ -85,25 +86,6 @@ class CourseDetails extends Component{
                 <Col md={7} style={{marginBottom: '1em'}} className={classes2.stickyVideo}>
                     <LectureVideo videoUrl={this.state.currentVideo} style={{width:"100%", margin:0, padding:0}}/>
                     <hr/>
-
-                    {/* <p>Pret: <s> {this.state.course.price}$  </s> <strong style={{ color : 'red' }}>  {this.state.course.discountedPrice}$ </strong></p>
-
-                    <hr></hr> */}
-
-                    {/* DE PASTRAT DEOCAMDATA */}
-                    {/* <Link to="/courses" className="btn btn-dark">Lista de cursuri</Link> */}
-                    {/* <button className="btn btn-dark" onClick={this.toggleShowSections} style={{ marginLeft: '20px' }}>
-                        {this.state.showSections ? 'Ascunde cuprins' : 'Arata cuprins'}                        
-                    </button> */}
-
-                    {/* {!this.state.course.sections || (this.state.course?.sections.length === 1 && this.state.course.sections[0]==='')
-                    ?
-                    <>
-                    <p>Todavia no hay sections...</p>
-                    </>
-                    :
-                    null
-                    } */}
 
                     <div className="d-none d-sm-block" style={{marginBottom:'7em'}}>
                         <CourseTabs course={this.state.course} loggedUser={this.props.loggedUser} renderList={this.renderList}
@@ -137,7 +119,7 @@ class CourseDetails extends Component{
                     <>
                     {
                         this.props.loggedUser?.role === 'admin' || this.props.loggedUser?.courses.includes(this.state.course._id) 
-                            || ( this.props.loggedUser !== undefined && this.state.course.freeAccessForFirstThirdOfAllLectures)
+                            || ( this.props.loggedUser !== undefined && this.state.course.freeAccessForAllLectures)
                         ?
                         <h5>Continutul cursului:</h5>
                         :
@@ -145,12 +127,13 @@ class CourseDetails extends Component{
                     }
                     {/* <CourseHeader course={{name: 'Continut cu acces liber:'}}/> */}
                     <SectionsList courseId={this.state.course._id} 
-                        freeCourse={this.state.course.freeAccessForFirstThirdOfAllLectures} 
+                        freeCourse={this.state.course.freeAccessForAllLectures} 
                         lecturesCount={this.state.course.lectures.length} 
                         sections={this.state.course?.sections}  
                         loggedUser={this.props.loggedUser} 
                         renderList={this.renderList} 
-                        currentLecture={this.state.currentLecture} setCurrentSectionAndLecture={this.setCurrentLecture}
+                        currentLecture={this.state.currentLecture} 
+                        // setCurrentSectionAndLecture={this.setCurrentSectionAndLecture}
                         currentSection={this.state.currentSection}
                         setCurrentVideo={this.setCurrentVideo}
                         currentVideo={this.state.currentVideo}/>
@@ -158,27 +141,6 @@ class CourseDetails extends Component{
                     }
                 </Col>
             </Row>
-
-                    {
-                        // this.state.showSections && <LecturesList courseId={this.state.course._id} lectures={this.state.course.lectures}/>
-                    }
-                    {/* {
-
-                        this.state.showSections && <SectionsList courseId={this.state.course._id} sections={this.state.course?.sections}  
-                            loggedUser={this.props.loggedUser} renderList={this.renderList}/>
-                    } */}
-
-                    {/* {!this.state.course.sections || (this.state.course?.sections.length === 1 && this.state.course.sections[0]==='') */}
-                    
-{/* // RAMAS DIN DTRABUNI                    
-                    {(!this.state.course.sections || this.state.course?.sections.length === 0)
-                    ?
-                    this.state.showSections && <p>Todavia no hay sections...</p>
-                    :
-                    this.state.showSections && <SectionsList courseId={this.state.course._id} sections={this.state.course?.sections}  
-                        loggedUser={this.props.loggedUser} renderList={this.renderList}/>
-                    } */}
-
 
             
             </>

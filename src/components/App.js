@@ -71,7 +71,7 @@ class App extends Component {
           handleAlert={this.handleAlert}
           storeUser={this.storeUser}
           loggedUser={this.state.loggedUser}
-          redirectToCourses={this.redirectToCourses}
+          // redirectToCourses={this.redirectToCourses}
         />
 
         <div style={{paddingTop:'3.5em', paddingBottom:'0', marginBottom:'0', minHeight:'100vh'}} >
