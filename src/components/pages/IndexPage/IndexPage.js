@@ -20,7 +20,7 @@ const IndexPage = ({loggedUser}) => {
                 {
                     !loggedUser
                     ?
-                    <h3 className="text-center mb-4">Fă-ți cont pentru a accesa conținutul cursurilor.</h3>
+                    <h3 className="text-center mb-4">Autentifică-te pentru a accesa conținutul cursurilor.</h3>
                     :
                     null
                 }
