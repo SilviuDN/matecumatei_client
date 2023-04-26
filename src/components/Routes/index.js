@@ -9,6 +9,7 @@ import Signup from '../pages/SignUp/SignUp';
 import LogIn from '../pages/LogIn/LogIn';
 import UserDetails from '../pages/UserDetails/UserDetails';
 import UserEditForm from '../pages/UserDetails/UserEditForm';
+import NotFound from '../pages/NotFoundPage/NotFoundPage';
 
 const Routes = ({ storeUser, loggedUser, handleAlert }) => {
 
@@ -27,6 +28,9 @@ const Routes = ({ storeUser, loggedUser, handleAlert }) => {
 
                 <Route path = '/users/:userId/edit'  render = { (props) => loggedUser ? <UserEditForm {...props} handleAlert={handleAlert}/> : <CoursesPage loggedUser={loggedUser}/> } />
                 <Route path = '/users/:userId'  render = { (props) => loggedUser ?  <UserDetails {...props} handleAlert={handleAlert}/> : <CoursesPage loggedUser={loggedUser}/> } />
+                
+                <Route path = '*' render = { () => <NotFound/> } />
+            
             </Switch>
         </>        
     )
