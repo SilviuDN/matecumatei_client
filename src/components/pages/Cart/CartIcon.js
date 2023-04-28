@@ -5,9 +5,8 @@ import ShoppingCart from './shopping-cart-svgrepo-com.svg';
 // import { CartContext } from '../../context/cart-context';
 import classes from './CartIcon.module.css';
 
-const CartIcon = ({ history }) => {
+const CartIcon = ({ history, itemsCount }) => {
 //   const { itemCount, cartItems } = useContext(CartContext);
-const itemCount = 2
 //   console.log('CartItems:', cartItems);
   return (
     <div className={classes.block}>            
@@ -15,7 +14,7 @@ const itemCount = 2
             <img className={classes.smallPic} src={ShoppingCart} alt="Shopping Cart"/>
         </div>  
         {
-          itemCount > 0 ? <span className={classes.cartCount}> { itemCount } </span> : null
+          itemsCount > 0 ? <span className={classes.cartCount}> { itemsCount } </span> : null
         }  
     </div>
   );

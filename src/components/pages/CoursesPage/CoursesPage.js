@@ -3,13 +3,13 @@ import CoursesList from './CoursesList'
 
 import { Link } from 'react-router-dom'
 
-const CoursesPage = ({loggedUser}) => {
+const CoursesPage = ({loggedUser, addToCart, removeItem}) => {
 
     // console.log(loggedUser.role)
 
     return(
         <Container>
-            <CoursesList loggedUser={loggedUser}/>
+            <CoursesList addToCart={addToCart} removeItem={removeItem} loggedUser={loggedUser}/>
             {
                 loggedUser?.role==='admin' || loggedUser?.role==='superUser'
                 ?

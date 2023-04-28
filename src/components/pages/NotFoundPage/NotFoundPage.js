@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import notFoundImage from './not-found-404.jpg';
 
 const NotFound = () => {
-    const style = {
-      fontWeight: 'bold',
-      textAlign: 'center',
-    }
+    // const style = {
+    //   fontWeight: 'bold',
+    //   textAlign: 'center',
+    // }
   
     return (
         <Container className="d-flex align-items-center justify-content-between mt-5 fluid">

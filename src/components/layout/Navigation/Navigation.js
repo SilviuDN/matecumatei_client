@@ -5,7 +5,7 @@ import CartIcon from '../../pages/Cart/CartIcon'
 
 import AuthService from '../../../services/auth.services'
 
-const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
+const Navigation = ({ storeUser, loggedUser, handleAlert, itemsCount}) => {
 
     const authService = new AuthService()
     const history = useHistory()
@@ -87,7 +87,8 @@ const Navigation = ({ storeUser, loggedUser, handleAlert}) => {
                             <span className="nav-link" >Salutare{loggedUser ? ', '+loggedUser.username?.trim().split(' ')[0] : ''}!</span>
                         </>
                     }
-                    {/* <Link className="nav-link" to="/"><CartIcon/></Link> */}
+                    {/* CART */}
+                    {/* <Link className="nav-link" to="/cart"><CartIcon itemsCount={itemsCount}/></Link> */}
                 </Nav>
             </Navbar.Collapse>
         </Navbar >

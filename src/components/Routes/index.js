@@ -10,15 +10,16 @@ import LogIn from '../pages/LogIn/LogIn';
 import UserDetails from '../pages/UserDetails/UserDetails';
 import UserEditForm from '../pages/UserDetails/UserEditForm';
 import NotFound from '../pages/NotFoundPage/NotFoundPage';
+import CartPage from '../pages/Cart/CartPage';
 
-const Routes = ({ storeUser, loggedUser, handleAlert }) => {
+const Routes = ({ storeUser, loggedUser, handleAlert, addToCart, cart, removeItem, removeAllItems }) => {
 
     return(
         <>
             <Switch>
                 <Route path = '/' exact render = { () => <IndexPage loggedUser={loggedUser}/> } />
 
-                <Route path = '/courses' exact render = { () => <CoursesPage loggedUser={loggedUser}/> } />
+                <Route path = '/courses' exact render = { (props) => <CoursesPage addToCart={addToCart} removeItem={removeItem} loggedUser={loggedUser} /> } />
                 <Route path = '/courses/details/:course_id' render = { props => <CourseDetails {...props} loggedUser={loggedUser}/> } />
                 <Route path = '/courses/new' render = { (props) => <CourseForm {...props} loggedUser={loggedUser}/> } />
                 <Route path = '/courses/edit/:course_id/:populated' render = { (props) => <CourseEditForm {...props} loggedUser={loggedUser}/> } />
@@ -28,6 +29,8 @@ const Routes = ({ storeUser, loggedUser, handleAlert }) => {
 
                 <Route path = '/users/:userId/edit'  render = { (props) => loggedUser ? <UserEditForm {...props} handleAlert={handleAlert}/> : <CoursesPage loggedUser={loggedUser}/> } />
                 <Route path = '/users/:userId'  render = { (props) => loggedUser ?  <UserDetails {...props} handleAlert={handleAlert}/> : <CoursesPage loggedUser={loggedUser}/> } />
+                
+                <Route path = '/cart' render = { (props) => <CartPage cart = {cart} removeItem={removeItem} removeAllItems={removeAllItems}/> } />
                 
                 <Route path = '*' render = { () => <NotFound/> } />
             

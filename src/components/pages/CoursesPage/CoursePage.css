@@ -43,3 +43,16 @@
 .btnBlock {
   width: 100%;
 }
+
+.removeButton {
+  background-color: #B4835B;
+  border-color: #B4835B;
+}
+
+.removeButton:hover {
+  background-color: #E8D7A5;
+  background-color: #F1E2BB;
+  background-color: #BDAE6F;
+  background-color: #7F4E27;
+  border-color: #C9A98E;
+}

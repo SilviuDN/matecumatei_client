@@ -1,6 +1,6 @@
 import {Container, Button} from 'react-bootstrap'
 // import {Container} from 'react-bootstrap'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 // import { useHistory, Link } from 'react-router-dom'
 import './IndexPage.css'
 

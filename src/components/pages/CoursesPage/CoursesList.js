@@ -34,7 +34,7 @@ class CoursesList extends Component{
             <Spinner size={200}/>
             :
             <Row>
-                {this.state.courses?.map( elm => <CourseCard key = {elm._id} {...elm} loggedUser={this.props.loggedUser}/>)}
+                {this.state.courses?.map( elm => <CourseCard addToCart={this.props.addToCart} removeItem={this.props.removeItem} key = {elm._id} {...elm} loggedUser={this.props.loggedUser}/>)}
             </Row>
 
         return(

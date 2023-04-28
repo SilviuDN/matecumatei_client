@@ -1,104 +1,184 @@
-// import { Component } from 'react'
-// import './App.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// // import 'bootstrap-icons/font/bootstrap-icons.css'
+import React, { Component } from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Container } from 'react-bootstrap';
+// import 'bootstrap-icons/font/bootstrap-icons.css'
+
+import Routes from './Routes';
+import Navigation from './layout/Navigation/Navigation';
+import Footer from './layout/Footer/Footer';
+import AuthService from '../services/auth.services';
+import Alert from './shared/Alert';
+
+import CookieGDRP from './pages/CookiesSettings/CookieInfoGDRP';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      loggedUser: undefined,
+      toast:{
+        showAlert: false,
+        alertText: [],
+        displayTime: 0,
+        color: 'warning'
+      },
+      cart:{
+        cartItems:[],
+        itemsCount: 0,
+        total: 0,
+        couponCode: undefined,
+      },
+      // showGDRP: true,
+      // showCookiesSettings: true,
+      showGDRP: true,
+    };
+    this.authService = new AuthService();
+  }
+
+  storeUser = (loggedUser) => {
+    this.setState({ loggedUser });
+  };
+
+  fetchUser = () => {
 
 
-// import Routes from './Routes'
-// import Navigation from './layout/Navigation/Navigation'
-// import Footer from './layout/Footer/Footer'
-// import AuthService from '../services/auth.services'
-// import Alert from './shared/Alert'
+    this.authService
+      .isLoggedIn()
+      .then((theLoggedUser) => this.storeUser(theLoggedUser.data))
+      // .then( () => {
+      //   const cartFromStorage = localStorage.getItem('cart') ? 
+      //     JSON.parse(localStorage.getItem('cart')) : [];
+      //   this.addCoursesToCart(cartFromStorage)
+      // })
+      .catch(() => this.storeUser(undefined));
+  };
 
-// import CookieConsent from 'react-cookie-consent'
-// import Cookies from 'js-cookie';
+  // storeCartItems = (cartItems) => {
+  //   const cart = cartItems.length > 0 ? cartItems : [];
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  // }
 
-// class App extends Component {
+  addToCart = (course) => {
+    const tempCartItems = [...this.state.cart.cartItems, course]
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: tempCartItems,
+      itemsCount: tempCartItems.length,
+      total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+    };
+    // this.storeCartItems(tempCartItems)
+    this.setState({ cart: updatedCart });
+  }
 
-//   constructor() {
-//     super()
-//     this.state = { 
-//       loggedUser: undefined,
-//       toast:{
-//         showAlert: false,
-//         alertText: [],
-//         displayTime: 0,
-//         color: 'warning'
-//       },
-//       cookiesSetingsL{
-//         showCookieSettings: false,
-//         preferencesCookies: false,
-//         analyticsCookies: false,
-//         marketingCookies: false,
-//       }
-//     }
-//     this.authService = new AuthService()
-//   }
+  // addCoursesToCart = (tempCartItems) => {
+  //   const updatedCart = {
+  //     ...this.state.cart,
+  //     cartItems: tempCartItems,
+  //     itemsCount: tempCartItems.length,
+  //     total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+  //   };
+  //   this.storeCartItems(tempCartItems)
+  //   this.setState({ cart: updatedCart });
+  // }
 
-//   storeUser = loggedUser => {this.setState({ loggedUser })}
+  removeItem = (id) => {
+    const tempCartItems = [...this.state.cart.cartItems].filter( el => el._id !== id)
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: tempCartItems,
+      itemsCount: tempCartItems.length,
+      total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+    };
+    // this.storeCartItems(tempCartItems)
+    this.setState({ cart: updatedCart });
+  }
 
-//   fetchUser = () => {
-//     this.authService
-//       .isLoggedIn()
-//       .then(theLoggedUser => this.storeUser(theLoggedUser.data))
-//       .catch(() => this.storeUser(undefined))
-//   }
+  removeAllItems = () => {
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: [],
+      itemsCount: 0,
+      total: 0,
+      couponCode: undefined,
+    };
+    localStorage.removeItem('cart')
+    // this.storeCartItems([])
+    this.setState({ cart: updatedCart });
+    // this.props.history.push('/courses');
+  }
 
-//   handleAlert(alertText, displayTime = 3000, color='warning', showAlert = true) {
-//     // console.log(alertText, displayTime, color, showAlert)
-//     this.setState({toast: {...this.state.toast, alertText, displayTime, color, showAlert }})
-//   }
-
-//   componentDidMount = () => {
-//     this.fetchUser()
-//     // window.scrollTo(0, 0)
-//   }
+  // Handle Cookies
+  // showCookiesSettings = () => {
+  //   this.setState({ showCookiesSettings: true });
+  // }  
+  // hideCookiesSettings = () => {
+  //   this.setState({ showCookiesSettings: false });
+  // }
+  hideGDRP = () => {
+    this.setState({ showGDRP: false });
+  }
   
 
-//   render() {
+
+  handleAlert = (alertText, displayTime = 3000, color='warning', showAlert = true) => {
+    // console.log(alertText, displayTime, color, showAlert)
+    this.setState({toast: {...this.state.toast, alertText, displayTime, color, showAlert }});
+  };
+
+  componentDidMount() {
+    this.fetchUser();
+    // window.scrollTo(0, 0)
+  }
+  
+  render() {
+    return (
+      <>
+        <Navigation
+          handleAlert={this.handleAlert}
+          storeUser={this.storeUser}
+          loggedUser={this.state.loggedUser}
+          itemsCount = {this.state.cart.itemsCount}
+          // redirectToCourses={this.redirectToCourses}
+        />
+
+        <div style={{paddingTop:'3.5em', paddingBottom:'0', marginBottom:'0', minHeight:'100vh'}} >
+
+          <Routes
+            handleAlert={this.handleAlert}
+            storeUser={this.storeUser}
+            loggedUser={this.state.loggedUser}
+            addToCart={this.addToCart}
+            removeItem={this.removeItem}
+            removeAllItems={this.removeAllItems}
+            cart={this.state.cart}
+          />          
+        </div>
+
+        <Footer />
+
+        <Alert
+          handleAlert={this.handleAlert}
+          show={this.state.toast.showAlert}
+          text={this.state.toast.alertText}
+          displayTime={this.state.toast.displayTime}
+          color={this.state.toast.color}
+        />
+
+        <CookieGDRP show={this.state.showGDRP} onHide={this.hideGDRP} />
+         
 
 
-//     return (
-//       <>
-//         <Navigation handleAlert={(alertText, displayTime, color, showAlert) => this.handleAlert(alertText, displayTime, color, showAlert)} 
-//           storeUser={this.storeUser} loggedUser={this.state.loggedUser} 
-//           redirectToCourses={this.redirectToCourses}/>
-
-//         <Routes handleAlert={(alertText, displayTime, color, showAlert) => this.handleAlert(alertText, displayTime, color, showAlert)} 
-//           storeUser={this.storeUser} loggedUser={this.state.loggedUser} />
-
-//         <Footer />
+        {/* <CookieConsentComponent show={this.state.showGDRP} showCookiesSettings={this.showCookiesSettings}/>
         
-//         <Alert handleAlert={(alertText, displayTime, color, showAlert) => this.handleAlert(alertText, displayTime, color, showAlert)} 
-//           show={this.state.toast.showAlert} text={this.state.toast.alertText} 
-//           displayTime={this.state.toast.displayTime} color={this.state.toast.color}/>
+        <CookieSettingsModal show={this.state.showCookiesSettings} onHide={this.hideCookiesSettings} /> */}
+         
+        {/* <CookieGDRP show={this.state.showGDRP} onHide={this.hideGDRP} /> */}
 
-//         <CookieConsent 
-//           debug={true}
-//           location={'bottom'}
-//           style={{ background: '#000', textAlign: 'left'}}
-//           buttonStyle={{ color: '#000', background: '#ffb606', fontSize:'1.2em'}}
-//           buttonText='Accept toate'
-//           expires={365}
-//           >
-//             <h6>Nouă ne pasă ca datele tale personale să rămână confidențiale</h6>
-//             <p>Folosim cookie-uri pe site-ul nostru pentru a vă oferi cea mai relevantă experiență. 
-//               Pentru aceasta stocăm informații despre preferințele și vizitele repetate. 
-//               Făcând clic pe „Accept toate”, sunteți de acord cu utilizarea TUTUROR cookie-urile. 
-//               Cu toate acestea, puteți accesa „Setări cookies” pentru a oferi un consimțământ controlat.
-//             </p>
-//             <button
-//               style={{ color: '#000', background: '#fff', fontSize: '1.2em' }}
-//               onClick={() => {
-//                 // TODO: add code to show cookie settings modal
-//               }}
-//             >
-//               Setari cookies
-//             </button>
-//         </CookieConsent>
-//       </>
-//     )
-//   }
-// }
+       
+      </>
+    );
+  }
+}
 
-// export default App;
+export default App;

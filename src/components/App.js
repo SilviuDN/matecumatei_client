@@ -15,6 +15,17 @@ import CookieGDRP from './pages/CookiesSettings/CookieInfoGDRP';
 class App extends Component {
   constructor() {
     super();
+    const cartListFromStorage = localStorage.getItem('cart')
+    ? JSON.parse(localStorage.getItem('cart'))
+    : []
+    const cartFromStorage = { 
+      cartItems: cartListFromStorage, 
+      itemsCount: cartListFromStorage.length, 
+      total: cartListFromStorage.reduce((acc, curr) => acc + curr.price, 0), 
+      };    
+    // const cartFromStorage = localStorage.getItem('cart')
+    //   ? JSON.parse(localStorage.getItem('cart'))
+    //   : { cartItems: [], itemsCount: 0, total: 0, couponCode: undefined };
     this.state = { 
       loggedUser: undefined,
       toast:{
@@ -23,6 +34,13 @@ class App extends Component {
         displayTime: 0,
         color: 'warning'
       },
+      cart: cartFromStorage,
+      // cart:{
+      //   cartItems:[],
+      //   itemsCount: 0,
+      //   total: 0,
+      //   couponCode: undefined,
+      // },
       // showGDRP: true,
       // showCookiesSettings: true,
       showGDRP: true,
@@ -35,11 +53,72 @@ class App extends Component {
   };
 
   fetchUser = () => {
+
+
     this.authService
       .isLoggedIn()
       .then((theLoggedUser) => this.storeUser(theLoggedUser.data))
+      .then( () => {
+        const cartFromStorage = localStorage.getItem('cart') ? 
+          JSON.parse(localStorage.getItem('cart')) : [];
+        this.addCoursesToCart(cartFromStorage)
+      })
       .catch(() => this.storeUser(undefined));
   };
+
+  storeCartItems = (cartItems) => {
+    const cart = cartItems.length > 0 ? cartItems : [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  addToCart = (course) => {
+    const tempCartItems = [...this.state.cart.cartItems, course]
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: tempCartItems,
+      itemsCount: tempCartItems.length,
+      total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+    };
+    this.storeCartItems(tempCartItems)
+    this.setState({ cart: updatedCart });
+  }
+
+  addCoursesToCart = (tempCartItems) => {
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: tempCartItems,
+      itemsCount: tempCartItems.length,
+      total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+    };
+    this.storeCartItems(tempCartItems)
+    this.setState({ cart: updatedCart });
+  }
+
+  removeItem = (id) => {
+    const tempCartItems = [...this.state.cart.cartItems].filter( el => el._id !== id)
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: tempCartItems,
+      itemsCount: tempCartItems.length,
+      total: tempCartItems.reduce((acc, curr) => acc + curr.price, 0),
+    };
+    this.storeCartItems(tempCartItems)
+    this.setState({ cart: updatedCart });
+  }
+
+  removeAllItems = () => {
+    const updatedCart = {
+      ...this.state.cart,
+      cartItems: [],
+      itemsCount: 0,
+      total: 0,
+      couponCode: undefined,
+    };
+    localStorage.removeItem('cart')
+    this.storeCartItems([])
+    this.setState({ cart: updatedCart });
+    // this.props.history.push('/courses');
+  }
 
   // Handle Cookies
   // showCookiesSettings = () => {
@@ -71,6 +150,7 @@ class App extends Component {
           handleAlert={this.handleAlert}
           storeUser={this.storeUser}
           loggedUser={this.state.loggedUser}
+          itemsCount = {this.state.cart.itemsCount}
           // redirectToCourses={this.redirectToCourses}
         />
 
@@ -80,6 +160,10 @@ class App extends Component {
             handleAlert={this.handleAlert}
             storeUser={this.storeUser}
             loggedUser={this.state.loggedUser}
+            addToCart={this.addToCart}
+            removeItem={this.removeItem}
+            removeAllItems={this.removeAllItems}
+            cart={this.state.cart}
           />          
         </div>
 
